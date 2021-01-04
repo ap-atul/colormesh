@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blackwhite.colormesh.ColorMesh;
+import com.blackwhite.colormesh.Palette;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(new CardAdapter());
 
     }
@@ -48,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             colorMesh = new ColorMesh();
             colorMesh
-                    .setColor("#FFAEBC")
-                    .setColor("#FBE7C6")
-                    .setTransparency(20)
+                    .setRandomColors(Palette.FRUITY, 4)
+                    .setTransparency(0)
+                    .setOrientation(ColorMesh.BL_TR)
                     .setType(ColorMesh.LINEAR)
                     .setCornerRadius(15)
                     .attach(holder.layout);
