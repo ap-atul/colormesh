@@ -1,4 +1,4 @@
-package com.blackwhite.colormesh;
+package com.blackwhite.colormeshapp;
 
 import android.content.Context;
 
