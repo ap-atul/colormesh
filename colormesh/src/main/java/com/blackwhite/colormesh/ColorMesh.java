@@ -15,6 +15,10 @@ public class ColorMesh {
     public static final int LINEAR = 0;
     public static final int RADIAL = 1;
 
+    public static final int OVAL = 1;
+    public static final int RECTANGLE = 0;
+    public static final int RING = 3;
+
     public static final Object TOP_BOTTOM = Orientation.TOP_BOTTOM;
     public static final Object BOTTOM_TOP = Orientation.BOTTOM_TOP;
     public static final Object LEFT_RIGHT = Orientation.LEFT_RIGHT;
@@ -30,6 +34,7 @@ public class ColorMesh {
     private int alpha = 1;
     private float radius = .0F;
     private Object orientation = TOP_BOTTOM;
+    private int shape = RECTANGLE;
 
     public ColorMesh() {
         this.colors = new ArrayList<>();
@@ -80,8 +85,13 @@ public class ColorMesh {
         return this;
     }
 
+    public ColorMesh setShape(int shape) {
+        this.shape = shape;
+        return this;
+    }
+
     public void attach(View view) {
-        Gradient gradient = new Gradient(colors, gradientType, alpha, radius, orientation);
+        Gradient gradient = new Gradient(colors, gradientType, alpha, radius, orientation, shape);
         view.setBackground(gradient.getDrawable());
     }
 }

@@ -27,16 +27,24 @@ class Gradient {
     private int alpha = 1;
     private float radius = .0F;
     private Object orientation = null;
+    private int shape = 1;
 
     Gradient() {
     }
 
-    public Gradient(List<Integer> colors, int gradientType, int alpha, float radius, Object orientation) {
+    public Gradient(List<Integer> colors,
+                    int gradientType,
+                    int alpha,
+                    float radius,
+                    Object orientation,
+                    int shape) {
+
         this.colors = colors;
         this.gradientType = gradientType;
         this.alpha = alpha;
         this.radius = radius;
         this.orientation = orientation;
+        this.shape = shape;
     }
 
     GradientDrawable getDrawable() {
@@ -49,7 +57,7 @@ class Gradient {
             drawable.setColors(getPrimitivesColors());
 
         drawable.setGradientType(this.gradientType);
-        drawable.setShape(GradientDrawable.RECTANGLE);
+        drawable.setShape(getShape());
         drawable.setOrientation(GradientDrawable.Orientation.BR_TL);
         drawable.setGradientCenter(0, 0);
         drawable.setAlpha(this.alpha);
@@ -57,6 +65,18 @@ class Gradient {
         drawable.setOrientation((GradientDrawable.Orientation) orientation);
 
         return drawable;
+    }
+
+    private int getShape() {
+        switch (shape) {
+            case 0:
+                return GradientDrawable.RECTANGLE;
+            case 1:
+                return GradientDrawable.OVAL;
+            case 3:
+                return GradientDrawable.RING;
+        }
+        return -1;
     }
 
     private int[] getPrimitivesColors() {
