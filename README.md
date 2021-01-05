@@ -1,5 +1,25 @@
-# colormesh
+# colormesh [![](https://jitpack.io/v/AP-Atul/colormesh.svg)](https://jitpack.io/#AP-Atul/colormesh)
 Color Mesh is a library that can create gradient and colour background for android views.
+
+
+## Get it
+Step 1. Add the JitPack repository to your build file
+```gradle
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Step 2. Add the dependency
+```gradle
+dependencies {
+        implementation 'com.github.AP-Atul:colormesh:0.1-alpha'
+}
+```
+
 
 ## Usage
 1. HEX Color codes: Add hex codes of color to the ColorMesh object to create a gradient. Similarly add
