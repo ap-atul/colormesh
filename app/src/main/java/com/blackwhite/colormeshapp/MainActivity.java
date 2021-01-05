@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> {
 
-        private ColorMesh colorMesh;
-
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,13 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-//            new String[]{
-//                    "#216EF3",
-//                    "#4BA1FC",
-//                    "#4BA2FC",
-//                    "#03A9F4"
-//            }
-            colorMesh = new ColorMesh();
+
+            ColorMesh colorMesh = new ColorMesh();
             colorMesh
                     .setRandomColors(FRUITY, 3)
                     .setTransparency(70)

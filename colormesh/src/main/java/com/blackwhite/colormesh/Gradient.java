@@ -56,12 +56,14 @@ class Gradient {
         } else
             drawable.setColors(getPrimitivesColors());
 
+
         drawable.setGradientType(this.gradientType);
         drawable.setShape(getShape());
         drawable.setOrientation(GradientDrawable.Orientation.BR_TL);
         drawable.setGradientCenter(0, 0);
         drawable.setAlpha(this.alpha);
         drawable.setCornerRadius(this.radius);
+        drawable.setUseLevel(false);
         drawable.setOrientation((GradientDrawable.Orientation) orientation);
 
         return drawable;
@@ -73,8 +75,6 @@ class Gradient {
                 return GradientDrawable.RECTANGLE;
             case 1:
                 return GradientDrawable.OVAL;
-            case 3:
-                return GradientDrawable.RING;
         }
         return -1;
     }

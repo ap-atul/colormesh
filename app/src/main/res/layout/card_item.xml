@@ -17,7 +17,6 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:drawable/list_selector_background"
             android:elevation="20dp">
 
         </RelativeLayout>
@@ -46,7 +45,6 @@
                 android:textSize="20sp" />
 
         </RelativeLayout>
-
 
     </RelativeLayout>
 

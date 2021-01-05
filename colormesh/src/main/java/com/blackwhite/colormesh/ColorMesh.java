@@ -9,15 +9,11 @@ import java.util.Random;
 
 
 public class ColorMesh {
-    public static final int ANGLE_90 = 1;
-    public static final int ANGLE_45 = 2;
-
     public static final int LINEAR = 0;
     public static final int RADIAL = 1;
 
     public static final int OVAL = 1;
     public static final int RECTANGLE = 0;
-    public static final int RING = 3;
 
     public static final Object TOP_BOTTOM = Orientation.TOP_BOTTOM;
     public static final Object BOTTOM_TOP = Orientation.BOTTOM_TOP;
@@ -91,7 +87,19 @@ public class ColorMesh {
     }
 
     public void attach(View view) {
-        Gradient gradient = new Gradient(colors, gradientType, alpha, radius, orientation, shape);
+        validate();
+
+        Gradient gradient = new Gradient(colors, gradientType, alpha, radius,
+                orientation, shape);
         view.setBackground(gradient.getDrawable());
+    }
+
+    private void validate() {
+        if (colors == null)
+            try {
+                throw new Exception("Color Mesh required at least one color. ");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 }
